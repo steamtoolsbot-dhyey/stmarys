@@ -1,0 +1,231 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* =========================================================
+       THEME 1 (DEFAULT): Oxford Royal & Amber Gold (Modern Heritage)
+       ========================================================= */
+    --bg-canvas: #F8FAFC;
+    --bg-alt: #F1F5F9;
+    --bg-card: #FFFFFF;
+    --border-subtle: #E2E8F0;
+    --border-strong: #CBD5E1;
+    --text-primary: #0A192F;
+    --text-secondary: #475569;
+    --text-muted: #64748B;
+    --accent-primary: #D97706;
+    --accent-secondary: #F59E0B;
+    --accent-light: #FEF3C7;
+    --accent-border: #FDE68A;
+    --header-bg: rgba(248, 250, 252, 0.94);
+    --header-border: rgba(226, 232, 240, 0.85);
+    --hero-bg-from: #F0F4F8;
+    --hero-bg-via: #F8FAFC;
+    --hero-bg-to: #EEF2F6;
+    --hero-overlay-from: rgba(240, 244, 248, 0.90);
+    --hero-overlay-via: rgba(248, 250, 252, 0.84);
+    --hero-overlay-to: rgba(238, 242, 246, 0.92);
+    --hero-side-from: rgba(240, 244, 248, 0.78);
+    --hero-side-to: rgba(240, 244, 248, 0.65);
+  }
+
+  [data-theme="sage"] {
+    /* THEME 2: Nordic Sage & Botanical Campus */
+    --bg-canvas: #F4F7F4;
+    --bg-alt: #EAF0EB;
+    --bg-card: #FFFFFF;
+    --border-subtle: #D5E2D8;
+    --border-strong: #BDCFC1;
+    --text-primary: #142820;
+    --text-secondary: #475E52;
+    --text-muted: #60786C;
+    --accent-primary: #C25E3E;
+    --accent-secondary: #E5A93C;
+    --accent-light: #FBF0EB;
+    --accent-border: #F3D2C6;
+    --header-bg: rgba(244, 247, 244, 0.94);
+    --header-border: rgba(213, 226, 216, 0.85);
+    --hero-bg-from: #EDF3EE;
+    --hero-bg-via: #F4F7F4;
+    --hero-bg-to: #E5ECE7;
+    --hero-overlay-from: rgba(237, 243, 238, 0.90);
+    --hero-overlay-via: rgba(244, 247, 244, 0.84);
+    --hero-overlay-to: rgba(229, 236, 231, 0.92);
+    --hero-side-from: rgba(237, 243, 238, 0.78);
+    --hero-side-to: rgba(237, 243, 238, 0.65);
+  }
+
+  [data-theme="cambridge"] {
+    /* THEME 3: Cambridge Crimson & Warm Alabaster */
+    --bg-canvas: #FAF7F2;
+    --bg-alt: #F4EFE6;
+    --bg-card: #FFFFFF;
+    --border-subtle: #E8DFC8;
+    --border-strong: #D5C7AB;
+    --text-primary: #1C1613;
+    --text-secondary: #574C43;
+    --text-muted: #73675E;
+    --accent-primary: #881337;
+    --accent-secondary: #B45309;
+    --accent-light: #FFF1F2;
+    --accent-border: #FECDD3;
+    --header-bg: rgba(250, 247, 242, 0.94);
+    --header-border: rgba(232, 223, 200, 0.85);
+    --hero-bg-from: #F7F2E8;
+    --hero-bg-via: #FAF7F2;
+    --hero-bg-to: #F1EAD8;
+    --hero-overlay-from: rgba(247, 242, 232, 0.90);
+    --hero-overlay-via: rgba(250, 247, 242, 0.84);
+    --hero-overlay-to: rgba(241, 234, 216, 0.92);
+    --hero-side-from: rgba(247, 242, 232, 0.78);
+    --hero-side-to: rgba(247, 242, 232, 0.65);
+  }
+
+  [data-theme="riviera"] {
+    /* THEME 4: Riviera Cobalt & Ice Blue */
+    --bg-canvas: #F4F8FC;
+    --bg-alt: #E9F1F8;
+    --bg-card: #FFFFFF;
+    --border-subtle: #D9E6F5;
+    --border-strong: #BFD4EC;
+    --text-primary: #091E3A;
+    --text-secondary: #4A607A;
+    --text-muted: #677D97;
+    --accent-primary: #2563EB;
+    --accent-secondary: #F59E0B;
+    --accent-light: #EFF6FF;
+    --accent-border: #BFDBFE;
+    --header-bg: rgba(244, 248, 252, 0.94);
+    --header-border: rgba(217, 230, 245, 0.85);
+    --hero-bg-from: #EDF4FA;
+    --hero-bg-via: #F4F8FC;
+    --hero-bg-to: #E3EEF7;
+    --hero-overlay-from: rgba(237, 244, 250, 0.90);
+    --hero-overlay-via: rgba(244, 248, 252, 0.84);
+    --hero-overlay-to: rgba(227, 238, 247, 0.92);
+    --hero-side-from: rgba(237, 244, 250, 0.78);
+    --hero-side-to: rgba(237, 244, 250, 0.65);
+  }
+
+  [data-theme="cashmere"] {
+    /* THEME 5: Warm Cashmere & Tuscan Ochre */
+    --bg-canvas: #F7F4EE;
+    --bg-alt: #EFEAE0;
+    --bg-card: #FFFFFF;
+    --border-subtle: #E2D8C6;
+    --border-strong: #CDC0AB;
+    --text-primary: #221A15;
+    --text-secondary: #5C5046;
+    --text-muted: #786B60;
+    --accent-primary: #D97706;
+    --accent-secondary: #B45309;
+    --accent-light: #FEF3C7;
+    --accent-border: #FDE68A;
+    --header-bg: rgba(247, 244, 238, 0.94);
+    --header-border: rgba(226, 216, 198, 0.85);
+    --hero-bg-from: #F3EFE7;
+    --hero-bg-via: #F7F4EE;
+    --hero-bg-to: #ECE5D8;
+    --hero-overlay-from: rgba(243, 239, 231, 0.90);
+    --hero-overlay-via: rgba(247, 244, 238, 0.84);
+    --hero-overlay-to: rgba(236, 229, 216, 0.92);
+    --hero-side-from: rgba(243, 239, 231, 0.78);
+    --hero-side-to: rgba(243, 239, 231, 0.65);
+  }
+
+  [data-theme="elysian"] {
+    /* THEME 6: Elysian Platinum & Champagne */
+    --bg-canvas: #F8F7FA;
+    --bg-alt: #EFECEF;
+    --bg-card: #FFFFFF;
+    --border-subtle: #E2DEE8;
+    --border-strong: #CDC7D7;
+    --text-primary: #1B1325;
+    --text-secondary: #574E63;
+    --text-muted: #736980;
+    --accent-primary: #C5A059;
+    --accent-secondary: #9333EA;
+    --accent-light: #FAF5FF;
+    --accent-border: #E9D5FF;
+    --header-bg: rgba(248, 247, 250, 0.94);
+    --header-border: rgba(226, 222, 232, 0.85);
+    --hero-bg-from: #F2F0F7;
+    --hero-bg-via: #F8F7FA;
+    --hero-bg-to: #ECE8F2;
+    --hero-overlay-from: rgba(242, 240, 247, 0.90);
+    --hero-overlay-via: rgba(248, 247, 250, 0.84);
+    --hero-overlay-to: rgba(236, 232, 242, 0.92);
+    --hero-side-from: rgba(242, 240, 247, 0.78);
+    --hero-side-to: rgba(242, 240, 247, 0.65);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+@layer utilities {
+  .glass-header {
+    background: var(--header-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--header-border);
+  }
+
+  .glass-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-subtle);
+  }
+
+  .warm-paper {
+    background-color: var(--bg-canvas);
+    background-image: radial-gradient(var(--border-strong) 0.75px, transparent 0.75px);
+    background-size: 24px 24px;
+  }
+
+  .academic-gradient-text {
+    background: linear-gradient(135deg, var(--text-primary) 0%, #1e385e 55%, var(--accent-primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .scroll-reveal {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform-style: preserve-3d;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-alt);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
