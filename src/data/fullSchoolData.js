@@ -266,7 +266,7 @@ export const fullSchoolData = {
         members: [
           { name: "Mr. Vimal Changela", role: "Educator", image: "/assets/site_images/vimal-changela.jpg" },
           { name: "Mr. Sabu John", role: "Educator", image: "/assets/site_images/sabu-john.jpg" },
-          { name: "Mr. Dharmendrasinh Jadeja", role: "Educator", image: "/assets/site_images/dn-jadeja.jpg" },
+          { name: "Mr. Dushyantsinh Jadeja", role: "Educator", image: "/assets/site_images/dn-jadeja.jpg" },
           { name: "Mr. Jignesh Bhayani", role: "Educator", image: "/assets/site_images/jignesh-bhayani.jpg" },
           { name: "Mr. Amit Malaviya", role: "Educator", image: "/assets/site_images/amit-malaviya.jpg" },
           { name: "Mrs. Alpa Rupapara", role: "Educator", image: "/assets/site_images/alpa-rupapara.jpg" },
@@ -284,7 +284,7 @@ export const fullSchoolData = {
         title: "Primary (Afternoon Section)",
         members: [
           { name: "Mrs. Ambily Sabu", role: "Educator", image: "/assets/site_images/ambily-sabu.jpg" },
-          { name: "Ms. Pooja Shah", role: "Educator", image: "/assets/site_images/pooja-shah.jpg" },
+          { name: "Mrs. Pooja Shah", role: "Educator", image: "/assets/site_images/pooja-shah.jpg" },
           { name: "Mrs. Ekta Mrug", role: "Educator", image: "/assets/site_images/ekta-mrug.jpg" },
           { name: "Mrs. Dharmistha Chavda", role: "Educator", image: "/assets/site_images/dharmistha-chavda.jpg" },
           { name: "Mrs. Krupa Upadhyay", role: "Educator", image: "/assets/site_images/krupa-upadhyay-1024x1016.jpg" },
