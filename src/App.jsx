@@ -5,6 +5,9 @@ import ContactFooter from './components/ContactFooter';
 import InquiryModal from './components/InquiryModal';
 import NewsModal from './components/NewsModal';
 import ThemeSelector from './components/ThemeSelector';
+import ScrollProgress from './components/ScrollProgress';
+import AmbientBackground from './components/AmbientBackground';
+import InstitutionalTicker from './components/InstitutionalTicker';
 
 // Dedicated Pages
 import HomePage from './pages/HomePage';
@@ -87,7 +90,13 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[var(--bg-canvas)] text-[var(--text-primary)] selection:bg-navy-800 selection:text-gold-300 antialiased transition-colors duration-300">
+    <div className="min-h-screen flex flex-col bg-[var(--bg-canvas)] text-[var(--text-primary)] selection:bg-navy-800 selection:text-gold-300 antialiased transition-colors duration-300 relative">
+      {/* 0. Glowing Golden Scroll Progress Line */}
+      <ScrollProgress />
+
+      {/* 0. Ambient Living Floating Light Orbs */}
+      <AmbientBackground />
+
       {/* 1. Global Announcement & Direct Info Bar */}
       <TopBar
         onNavigate={navigateTo}
@@ -100,6 +109,9 @@ export default function App() {
         onNavigate={navigateTo}
         onOpenInquiry={() => setIsInquiryOpen(true)}
       />
+
+      {/* 2.5. Infinite Luxury Institutional Ticker Banner */}
+      <InstitutionalTicker />
 
       {/* 3. Dedicated Active Page View */}
       <main className="flex-grow">

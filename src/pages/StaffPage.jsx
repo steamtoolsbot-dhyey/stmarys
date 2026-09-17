@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Users, ChevronRight, GraduationCap, Award, ShieldCheck } from 'lucide-react';
 import { fullSchoolData } from '../data/fullSchoolData';
 import ScrollReveal from '../components/ScrollReveal';
+import TiltCard from '../components/TiltCard';
 
 function StaffAvatar({ image, name, className = '' }) {
   const [imgError, setImgError] = useState(false);
@@ -122,62 +123,63 @@ export default function StaffPage({ onNavigate }) {
                      Principal's Photo is Significantly Bigger at the Very Top!
                      ========================================================= */
                   <div className="space-y-12 pt-4 pb-8">
-                    {/* 1. Principal - Prominent Apex Spotlight (Top & Standout) */}
+                    {/* 1. Principal - Prominent Apex Spotlight with 3D Tilt & Living Aura */}
                     {sec.members
                       .filter((m) => m.role.toLowerCase() === 'principal' || !m.role.toLowerCase().includes('vice'))
                       .map((principal, pIdx) => (
                         <ScrollReveal key={pIdx} animation="pop" delay={150} className="w-full max-w-2xl mx-auto">
-                          <div className="bg-white rounded-3xl p-6 sm:p-10 border-2 border-amber-300 shadow-xl hover:shadow-2xl transition-all duration-300 text-center flex flex-col items-center group relative overflow-hidden">
-                            
-                            {/* Prestige Ribbon */}
-                            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-50 via-amber-100/70 to-amber-50 text-amber-900 border border-amber-300/80 px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-widest mb-6 shadow-xs">
-                              <Award className="w-4 h-4 text-amber-600" />
-                              <span>Head of Institution • Office of the Principal</span>
-                            </div>
+                          <TiltCard maxTilt={6} scale={1.015} className="rounded-3xl">
+                            <div className="bg-white rounded-3xl p-6 sm:p-10 border-2 border-amber-300 shadow-xl hover:shadow-2xl transition-all duration-300 text-center flex flex-col items-center group relative overflow-hidden">
+                              
+                              {/* Prestige Ribbon */}
+                              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-50 via-amber-100/70 to-amber-50 text-amber-900 border border-amber-300/80 px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-widest mb-6 shadow-xs">
+                                <Award className="w-4 h-4 text-amber-600" />
+                                <span>Head of Institution • Office of the Principal</span>
+                              </div>
 
-                            {/* Prominent Super-Sized Principal Photo Container */}
-                            <div className="relative mb-6">
-                              <div className="absolute -inset-3 bg-gradient-to-tr from-amber-400/30 via-amber-200/20 to-amber-500/30 rounded-[2.2rem] blur-sm group-hover:blur-md transition-all -z-10" />
-                              <div className="w-64 h-80 sm:w-80 sm:h-96 md:w-[380px] md:h-[460px] rounded-3xl overflow-hidden bg-slate-100 border-4 border-white ring-4 ring-amber-400/50 shadow-2xl group-hover:scale-105 transition-transform duration-500 relative">
-                                <StaffAvatar
-                                  image={principal.image}
-                                  name={principal.name}
-                                  className="object-top"
-                                />
-                                {/* Overlay Badge on Photo */}
-                                <div className="absolute bottom-3 left-3 right-3 bg-navy-950/80 backdrop-blur-md text-white py-2 px-3 rounded-2xl border border-white/20 text-center shadow-lg">
-                                  <span className="text-[11px] font-bold tracking-wider uppercase text-amber-300">
-                                    Rev. Fr. Rojant K
-                                  </span>
+                              {/* Prominent Super-Sized Principal Photo with Living Aura & Gleam */}
+                              <div className="relative mb-6 living-aura rounded-3xl">
+                                <div className="w-64 h-80 sm:w-80 sm:h-96 md:w-[380px] md:h-[460px] rounded-3xl overflow-hidden bg-slate-100 border-4 border-white ring-4 ring-amber-400/50 shadow-2xl transition-transform duration-500 relative photo-gleam">
+                                  <StaffAvatar
+                                    image={principal.image}
+                                    name={principal.name}
+                                    className="object-top"
+                                  />
+                                  {/* Overlay Badge on Photo */}
+                                  <div className="absolute bottom-3 left-3 right-3 bg-navy-950/80 backdrop-blur-md text-white py-2 px-3 rounded-2xl border border-white/20 text-center shadow-lg">
+                                    <span className="text-[11px] font-bold tracking-wider uppercase text-amber-300">
+                                      Rev. Fr. Rojant K
+                                    </span>
+                                  </div>
                                 </div>
                               </div>
+
+                              <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl font-extrabold text-navy-950 tracking-tight">
+                                {principal.name}
+                              </h3>
+
+                              <div className="mt-3 flex items-center justify-center gap-2">
+                                <span className="text-xs sm:text-sm uppercase font-extrabold text-white tracking-widest px-6 py-2 rounded-full bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 shadow-md inline-block">
+                                  {principal.role} & Director
+                                </span>
+                              </div>
+
+                              <p className="text-sm sm:text-base text-slate-600 mt-4 max-w-lg leading-relaxed font-serif italic">
+                                "Guiding every student towards intellectual excellence, moral integrity, and holistic formation with dedicated pastoral care."
+                              </p>
+
+                              <div className="mt-6 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-slate-500 font-medium">
+                                <span className="flex items-center gap-1.5 font-bold text-navy-900">
+                                  <ShieldCheck className="w-4 h-4 text-amber-600" />
+                                  St. Mary's School Gondal
+                                </span>
+                                <span>•</span>
+                                <span>Rajkot Kelavani Samaj</span>
+                                <span>•</span>
+                                <span>Estd. 1968</span>
+                              </div>
                             </div>
-
-                            <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl font-extrabold text-navy-950 tracking-tight">
-                              {principal.name}
-                            </h3>
-
-                            <div className="mt-3 flex items-center justify-center gap-2">
-                              <span className="text-xs sm:text-sm uppercase font-extrabold text-white tracking-widest px-6 py-2 rounded-full bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 shadow-md inline-block">
-                                {principal.role} & Director
-                              </span>
-                            </div>
-
-                            <p className="text-sm sm:text-base text-slate-600 mt-4 max-w-lg leading-relaxed font-serif italic">
-                              "Guiding every student towards intellectual excellence, moral integrity, and holistic formation with dedicated pastoral care."
-                            </p>
-
-                            <div className="mt-6 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-slate-500 font-medium">
-                              <span className="flex items-center gap-1.5 font-bold text-navy-900">
-                                <ShieldCheck className="w-4 h-4 text-amber-600" />
-                                St. Mary's School Gondal
-                              </span>
-                              <span>•</span>
-                              <span>Rajkot Kelavani Samaj</span>
-                              <span>•</span>
-                              <span>Estd. 1968</span>
-                            </div>
-                          </div>
+                          </TiltCard>
                         </ScrollReveal>
                       ))}
 
@@ -192,7 +194,7 @@ export default function StaffPage({ onNavigate }) {
                               Academic Administration
                             </div>
 
-                            <div className="w-36 h-44 sm:w-44 sm:h-52 rounded-2xl overflow-hidden mb-4 bg-slate-50 border-2 border-slate-200 shadow-md group-hover:scale-105 transition-transform duration-300">
+                            <div className="w-36 h-44 sm:w-44 sm:h-52 rounded-2xl overflow-hidden mb-4 bg-slate-50 border-2 border-slate-200 shadow-md group-hover:scale-105 transition-transform duration-300 photo-gleam">
                               <StaffAvatar image={vp.image} name={vp.name} />
                             </div>
 
@@ -221,7 +223,7 @@ export default function StaffPage({ onNavigate }) {
                         <div
                           className="bg-white rounded-2xl p-4 border border-[var(--border-subtle)] text-center shadow-soft hover:shadow-card transition-all flex flex-col items-center group h-full"
                         >
-                          <div className="w-24 h-28 sm:w-28 sm:h-32 rounded-xl overflow-hidden mb-3 bg-sand-100 border-2 border-sand-200/60 shadow-xs">
+                          <div className="w-24 h-28 sm:w-28 sm:h-32 rounded-xl overflow-hidden mb-3 bg-sand-100 border-2 border-sand-200/60 shadow-xs photo-gleam">
                             <StaffAvatar image={member.image} name={member.name} />
                           </div>
                           <h4 className="font-bold text-xs sm:text-sm text-navy-950 leading-snug">

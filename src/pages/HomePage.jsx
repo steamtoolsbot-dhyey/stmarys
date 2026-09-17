@@ -16,6 +16,8 @@ import {
 } from 'lucide-react';
 import { fullSchoolData } from '../data/fullSchoolData';
 import ScrollReveal from '../components/ScrollReveal';
+import CountUp from '../components/CountUp';
+import TiltCard from '../components/TiltCard';
 
 export default function HomePage({ onNavigate, onOpenInquiry, onSelectNews }) {
   const { home } = fullSchoolData;
@@ -247,31 +249,50 @@ export default function HomePage({ onNavigate, onOpenInquiry, onSelectNews }) {
 
           </div>
 
-          {/* Heritage Stats Row - Staggered Pop In */}
+          {/* Heritage Stats Row - 3D Tilt Cards + Animated CountUp */}
           <div className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto lg:max-w-none">
             <ScrollReveal animation="pop" delay={100}>
-              <div className="bg-white/80 backdrop-blur-sm p-4 rounded-2xl border border-sand-200 shadow-sm text-center hover:shadow-md hover:border-gold-300/50 transition-all">
-                <div className="font-serif text-3xl font-extrabold text-navy-950">1979</div>
-                <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mt-1">Established</div>
-              </div>
+              <TiltCard maxTilt={10} className="h-full rounded-2xl">
+                <div className="bg-white/90 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-sand-200 shadow-sm text-center hover:shadow-card hover:border-amber-400/50 transition-all h-full">
+                  <div className="font-serif text-3xl sm:text-4xl font-extrabold text-navy-950">
+                    <CountUp end={1979} start={1940} duration={1600} />
+                  </div>
+                  <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mt-1">Established</div>
+                </div>
+              </TiltCard>
             </ScrollReveal>
+
             <ScrollReveal animation="pop" delay={200}>
-              <div className="bg-white/80 backdrop-blur-sm p-4 rounded-2xl border border-sand-200 shadow-sm text-center hover:shadow-md hover:border-gold-300/50 transition-all">
-                <div className="font-serif text-3xl font-extrabold text-gold-700">100%</div>
-                <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mt-1">Board Results</div>
-              </div>
+              <TiltCard maxTilt={10} className="h-full rounded-2xl">
+                <div className="bg-white/90 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-sand-200 shadow-sm text-center hover:shadow-card hover:border-amber-400/50 transition-all h-full">
+                  <div className="font-serif text-3xl sm:text-4xl font-extrabold text-amber-700">
+                    <CountUp end={100} suffix="%" duration={1800} />
+                  </div>
+                  <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mt-1">GSEB Results</div>
+                </div>
+              </TiltCard>
             </ScrollReveal>
+
             <ScrollReveal animation="pop" delay={300}>
-              <div className="bg-white/80 backdrop-blur-sm p-4 rounded-2xl border border-sand-200 shadow-sm text-center hover:shadow-md hover:border-gold-300/50 transition-all">
-                <div className="font-serif text-3xl font-extrabold text-navy-950">1500+</div>
-                <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mt-1">Students</div>
-              </div>
+              <TiltCard maxTilt={10} className="h-full rounded-2xl">
+                <div className="bg-white/90 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-sand-200 shadow-sm text-center hover:shadow-card hover:border-amber-400/50 transition-all h-full">
+                  <div className="font-serif text-3xl sm:text-4xl font-extrabold text-navy-950">
+                    <CountUp end={45} suffix="+" duration={1500} />
+                  </div>
+                  <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mt-1">Years Legacy</div>
+                </div>
+              </TiltCard>
             </ScrollReveal>
+
             <ScrollReveal animation="pop" delay={400}>
-              <div className="bg-white/80 backdrop-blur-sm p-4 rounded-2xl border border-sand-200 shadow-sm text-center hover:shadow-md hover:border-gold-300/50 transition-all">
-                <div className="font-serif text-3xl font-extrabold text-navy-950">45+</div>
-                <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mt-1">Years Legacy</div>
-              </div>
+              <TiltCard maxTilt={10} className="h-full rounded-2xl">
+                <div className="bg-white/90 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-sand-200 shadow-sm text-center hover:shadow-card hover:border-amber-400/50 transition-all h-full">
+                  <div className="font-serif text-3xl sm:text-4xl font-extrabold text-amber-700">
+                    <CountUp end={40} suffix="+" duration={1500} />
+                  </div>
+                  <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mt-1">Dedicated Faculty</div>
+                </div>
+              </TiltCard>
             </ScrollReveal>
           </div>
 
