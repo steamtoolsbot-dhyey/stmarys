@@ -22,8 +22,8 @@ export default function Navbar({ currentPage, onNavigate, onOpenInquiry }) {
   };
 
   return (
-    <header className={`sticky top-0 z-40 w-full transition-all duration-300 ${
-      isScrolled ? 'glass-header shadow-soft py-2.5' : 'bg-[var(--header-bg)] backdrop-blur-md border-b border-[var(--header-border)] py-3.5'
+    <header className={`sticky top-0 z-40 w-full transition-all duration-300 rainbow-border-bottom ${
+      isScrolled ? 'glass-depth shadow-soft py-2.5' : 'bg-[var(--header-bg)] backdrop-blur-md border-b border-[var(--header-border)] py-3.5'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         
@@ -80,8 +80,8 @@ export default function Navbar({ currentPage, onNavigate, onOpenInquiry }) {
                     <ChevronDown className="w-4 h-4 text-slate-400 group-hover:rotate-180 transition-transform duration-200" />
                   </button>
 
-                  {/* Dropdown Menu */}
-                  <div className={`absolute top-full left-0 w-52 py-2 bg-white rounded-2xl shadow-card border border-sand-200/80 transition-all duration-200 ${
+                  {/* Dropdown Menu — Glassmorphism */}
+                  <div className={`absolute top-full left-0 w-52 py-2 glass-depth rounded-2xl shadow-card border border-sand-200/80 transition-all duration-200 ${
                     activeDropdown === idx ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
                   }`}>
                     {item.children.map((sub, sIdx) => (
@@ -108,9 +108,9 @@ export default function Navbar({ currentPage, onNavigate, onOpenInquiry }) {
               <button
                 key={idx}
                 onClick={() => handleNavClick(item.id)}
-                className={`px-3 py-1.5 rounded-lg text-sm font-semibold transition-all ${
+                className={`nav-active-line px-3 py-1.5 rounded-lg text-sm font-semibold transition-all ${
                   isActive
-                    ? 'text-navy-950 bg-sand-200/70 font-bold'
+                    ? 'text-navy-950 bg-sand-200/70 font-bold active'
                     : 'text-slate-700 hover:text-navy-950 hover:bg-sand-100/70'
                 }`}
               >
@@ -124,7 +124,7 @@ export default function Navbar({ currentPage, onNavigate, onOpenInquiry }) {
         <div className="hidden lg:flex items-center gap-3">
           <button
             onClick={onOpenInquiry}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold text-white bg-navy-900 hover:bg-navy-800 transition-all shadow-sm active:scale-95"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold text-white bg-navy-900 hover:bg-navy-800 transition-all shadow-sm active:scale-95 ripple-effect"
           >
             <GraduationCap className="w-4 h-4 text-gold-400" />
             <span>Admissions</span>

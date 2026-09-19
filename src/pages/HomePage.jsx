@@ -18,6 +18,9 @@ import { fullSchoolData } from '../data/fullSchoolData';
 import ScrollReveal from '../components/ScrollReveal';
 import CountUp from '../components/CountUp';
 import TiltCard from '../components/TiltCard';
+import ParticleField from '../components/ParticleField';
+import Typewriter from '../components/Typewriter';
+import MorphBlob from '../components/MorphBlob';
 
 export default function HomePage({ onNavigate, onOpenInquiry, onSelectNews }) {
   const { home } = fullSchoolData;
@@ -47,16 +50,22 @@ export default function HomePage({ onNavigate, onOpenInquiry, onSelectNews }) {
   return (
     <div className="space-y-0">
       
-      {/* 1. HERO — Aesthetic Light Theme with Decorative Background */}
+      {/* 1. HERO — Aesthetic Light Theme with Creative Layered Background */}
       <section 
         className="relative pt-14 pb-24 lg:pt-20 lg:pb-32 border-b border-[var(--border-subtle)] overflow-hidden transition-colors duration-300"
         style={{
           background: 'linear-gradient(to bottom, var(--hero-bg-from), var(--hero-bg-via), var(--hero-bg-to))'
         }}
       >
-        
+        {/* Living Morphing Blobs */}
+        <MorphBlob color="var(--accent-primary)" size={550} opacity={0.10} speed="slow" style={{ top: '-15%', left: '-10%' }} />
+        <MorphBlob color="#3b82f6" size={450} opacity={0.07} speed="normal" style={{ bottom: '-10%', right: '-5%' }} />
+
+        {/* Canvas Particle Field (Interactive golden embers) */}
+        <ParticleField className="absolute inset-0 pointer-events-none z-[2]" />
+
         {/* === Full-Cover Hero Background Image === */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 z-[1]">
           <img 
             src="/assets/kg-building.jpg" 
             alt="" 
@@ -96,16 +105,38 @@ export default function HomePage({ onNavigate, onOpenInquiry, onSelectNews }) {
                 </div>
               </ScrollReveal>
 
-              {/* Main Headline */}
-              <ScrollReveal animation="fade-up" delay={200}>
-                <h1 className="font-serif text-5xl sm:text-6xl lg:text-[4.25rem] font-extrabold text-navy-950 tracking-tight leading-[1.08]">
-                  St. Mary's
-                  <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-600 via-gold-500 to-amber-500">
-                    School Gondal
-                  </span>
-                </h1>
-              </ScrollReveal>
+              {/* Main Headline — Clean, complete and crystal clear */}
+              <div className="space-y-2">
+                <ScrollReveal animation="fade-up" delay={200}>
+                  <h1 className="font-serif text-5xl sm:text-6xl lg:text-[4.25rem] font-extrabold text-navy-950 tracking-tight leading-[1.08]">
+                    St. Mary's
+                    <br />
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-600 via-gold-500 to-amber-500">
+                      School Gondal
+                    </span>
+                  </h1>
+                </ScrollReveal>
+
+                {/* Rotating Dynamic Taglines with Typewriter */}
+                <div className="pt-2 min-h-[36px] flex items-center justify-center lg:justify-start">
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-sm border border-gold-200/90 text-xs text-navy-950 font-medium shadow-xs">
+                    <Sparkles className="w-3.5 h-3.5 text-gold-600 animate-pulse" />
+                    <Typewriter
+                      strings={[
+                        "Nurturing Global Leaders Since 1979",
+                        "45+ Years of Academic Distinction",
+                        "100% GSEB Board Examination Pass Rate",
+                        "Holistic Character & Moral Formation",
+                        "State-of-the-Art Sports & Skating Complex"
+                      ]}
+                      typingSpeed={38}
+                      deletingSpeed={20}
+                      pauseTime={2500}
+                      className="text-xs sm:text-sm font-semibold text-slate-800"
+                    />
+                  </div>
+                </div>
+              </div>
 
               {/* Tagline */}
               <ScrollReveal animation="fade-up" delay={300}>
@@ -163,12 +194,12 @@ export default function HomePage({ onNavigate, onOpenInquiry, onSelectNews }) {
 
             </div>
 
-            {/* Right Column — Campus Photo Card + Stats */}
+            {/* Right Column — Campus Photo Card with 3D Tilt + Stats */}
             <div className="lg:col-span-5">
               <div className="relative mx-auto max-w-md lg:max-w-none">
                 
-                {/* Campus Photo Card - Pops Up */}
-                <ScrollReveal animation="pop" delay={250}>
+                {/* Campus Photo Card - Tilt Scroll Entrance */}
+                <ScrollReveal animation="tilt-scroll" delay={250}>
                   <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/90 bg-white group">
                     <div className="relative aspect-[4/3] overflow-hidden bg-sand-200">
                       <img
@@ -300,8 +331,10 @@ export default function HomePage({ onNavigate, onOpenInquiry, onSelectNews }) {
       </section>
 
       {/* 2. LEARNING BEGINS WITH US */}
-      <section className="py-20 bg-[var(--bg-canvas)] transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-[var(--bg-canvas)] transition-colors duration-300 relative overflow-hidden">
+        <MorphBlob color="#3b82f6" size={350} opacity={0.05} speed="slow" style={{ top: '20%', right: '-5%' }} />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
             <div className="lg:col-span-7 space-y-6">
@@ -329,10 +362,10 @@ export default function HomePage({ onNavigate, onOpenInquiry, onSelectNews }) {
                 </p>
               </ScrollReveal>
 
-              {/* 3 Core Strengths Cards - Staggered Pop */}
+              {/* 3 Core Strengths Cards - Reliable ScrollReveal */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
                 <ScrollReveal animation="pop" delay={100}>
-                  <div className="bg-white p-4 rounded-xl border border-[var(--border-subtle)] shadow-xs h-full">
+                  <div className="bg-white p-4 rounded-xl border border-[var(--border-subtle)] shadow-xs h-full hover:shadow-soft transition-shadow">
                     <div className="font-bold text-navy-950 text-sm flex items-center gap-1.5 mb-1">
                       <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                       Inspirational
@@ -344,7 +377,7 @@ export default function HomePage({ onNavigate, onOpenInquiry, onSelectNews }) {
                 </ScrollReveal>
 
                 <ScrollReveal animation="pop" delay={200}>
-                  <div className="bg-white p-4 rounded-xl border border-[var(--border-subtle)] shadow-xs h-full">
+                  <div className="bg-white p-4 rounded-xl border border-[var(--border-subtle)] shadow-xs h-full hover:shadow-soft transition-shadow">
                     <div className="font-bold text-navy-950 text-sm flex items-center gap-1.5 mb-1">
                       <CheckCircle2 className="w-4 h-4 text-amber-600" />
                       Character
@@ -356,7 +389,7 @@ export default function HomePage({ onNavigate, onOpenInquiry, onSelectNews }) {
                 </ScrollReveal>
 
                 <ScrollReveal animation="pop" delay={300}>
-                  <div className="bg-white p-4 rounded-xl border border-[var(--border-subtle)] shadow-xs h-full">
+                  <div className="bg-white p-4 rounded-xl border border-[var(--border-subtle)] shadow-xs h-full hover:shadow-soft transition-shadow">
                     <div className="font-bold text-navy-950 text-sm flex items-center gap-1.5 mb-1">
                       <CheckCircle2 className="w-4 h-4 text-navy-700" />
                       Future-Ready
@@ -379,9 +412,9 @@ export default function HomePage({ onNavigate, onOpenInquiry, onSelectNews }) {
               </ScrollReveal>
             </div>
 
-            {/* Right Images - Pop In */}
+            {/* Right Images - 3D Tilt Scroll */}
             <div className="lg:col-span-5 space-y-4">
-              <ScrollReveal animation="pop" delay={150}>
+              <ScrollReveal animation="tilt-scroll" delay={150}>
                 <div className="rounded-3xl overflow-hidden shadow-card border-4 border-white bg-white group">
                   <img
                     src="/assets/school-photo.jpg"
@@ -418,8 +451,10 @@ export default function HomePage({ onNavigate, onOpenInquiry, onSelectNews }) {
       </section>
 
       {/* 3. PRINCIPAL'S VISION & STUDENT LIFE */}
-      <section className="py-20 bg-[var(--bg-alt)] border-y border-[var(--border-subtle)] transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-[var(--bg-alt)] border-y border-[var(--border-subtle)] transition-colors duration-300 relative overflow-hidden">
+        <MorphBlob color="var(--accent-primary)" size={400} opacity={0.06} speed="normal" style={{ bottom: '-10%', left: '-5%' }} />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           {/* Section Header */}
           <ScrollReveal animation="fade-up" className="text-center max-w-3xl mx-auto mb-12 space-y-2">
@@ -452,9 +487,9 @@ export default function HomePage({ onNavigate, onOpenInquiry, onSelectNews }) {
               
               <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
                 
-                {/* Father Rojant Portrait Photo - Pop */}
+                {/* Father Rojant Portrait Photo - Tilt Scroll */}
                 <div className="md:col-span-4 text-center">
-                  <ScrollReveal animation="pop" delay={250}>
+                  <ScrollReveal animation="tilt-scroll" delay={250}>
                     <div className="w-32 h-32 sm:w-40 sm:h-40 mx-auto rounded-full overflow-hidden border-4 border-amber-100 shadow-md">
                       <img
                         src="/assets/site_images/fr_rojantk-1024x730.jpg"
@@ -496,7 +531,7 @@ export default function HomePage({ onNavigate, onOpenInquiry, onSelectNews }) {
       </section>
 
       {/* 4. CURRICULUM OVERVIEW */}
-      <section className="py-20 bg-[var(--bg-canvas)] transition-colors duration-300">
+      <section className="py-20 bg-[var(--bg-canvas)] transition-colors duration-300 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal animation="fade-up" className="text-center max-w-3xl mx-auto mb-14 space-y-4">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--bg-alt)] text-navy-950 text-xs font-bold tracking-wider uppercase border border-[var(--border-subtle)]">
@@ -511,6 +546,7 @@ export default function HomePage({ onNavigate, onOpenInquiry, onSelectNews }) {
             </p>
           </ScrollReveal>
 
+          {/* Grid for Curriculum Wings */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {home.curriculumSection.levels.map((lvl, idx) => (
               <ScrollReveal key={idx} animation="pop" delay={idx * 150}>
@@ -558,7 +594,7 @@ export default function HomePage({ onNavigate, onOpenInquiry, onSelectNews }) {
       </section>
 
       {/* 5. NEWS & UPDATES */}
-      <section className="py-20 bg-[var(--bg-alt)] border-t border-[var(--border-subtle)] transition-colors duration-300">
+      <section className="py-20 bg-[var(--bg-alt)] border-t border-[var(--border-subtle)] transition-colors duration-300 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal animation="fade-up">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
@@ -580,6 +616,7 @@ export default function HomePage({ onNavigate, onOpenInquiry, onSelectNews }) {
             </div>
           </ScrollReveal>
 
+          {/* Grid for News Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {home.newsSection.items.map((item, idx) => (
               <ScrollReveal key={idx} animation="pop" delay={idx * 150}>
@@ -618,7 +655,7 @@ export default function HomePage({ onNavigate, onOpenInquiry, onSelectNews }) {
       </section>
 
       {/* 6. OUR CO-CURRICULAR ACTIVITIES */}
-      <section className="py-20 bg-[var(--bg-canvas)] transition-colors duration-300">
+      <section className="py-20 bg-[var(--bg-canvas)] transition-colors duration-300 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal animation="fade-up" className="text-center max-w-3xl mx-auto mb-12 space-y-3">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--bg-alt)] text-navy-950 text-xs font-bold tracking-wider uppercase border border-[var(--border-subtle)]">
@@ -630,8 +667,8 @@ export default function HomePage({ onNavigate, onOpenInquiry, onSelectNews }) {
             </h2>
           </ScrollReveal>
 
-          {/* Basketball Court Banner - Zoom In */}
-          <ScrollReveal animation="zoom" delay={100}>
+          {/* Basketball Court Banner - 3D Tilt Scroll */}
+          <ScrollReveal animation="tilt-scroll" delay={100}>
             <div className="rounded-3xl overflow-hidden shadow-card border-4 border-white mb-12 group h-72 sm:h-96 relative bg-slate-200">
               <img
                 src={home.activitiesSection.bannerImage}
@@ -655,7 +692,7 @@ export default function HomePage({ onNavigate, onOpenInquiry, onSelectNews }) {
             </div>
           </ScrollReveal>
 
-          {/* 3 Activities Cards - Staggered Pop */}
+          {/* 3 Activities Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {home.activitiesSection.items.map((act, idx) => (
               <ScrollReveal key={idx} animation="pop" delay={idx * 150}>

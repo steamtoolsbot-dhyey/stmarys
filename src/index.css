@@ -357,3 +357,384 @@
   perspective: 1000px;
 }
 
+/* ==========================================================================
+   MEGA CREATIVE DESIGN SUITE v2
+   ========================================================================== */
+
+/* 6. Morphing Blob Shape Animation */
+@keyframes morph-blob-shape {
+  0%, 100% {
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  }
+  25% {
+    border-radius: 70% 30% 50% 50% / 30% 40% 70% 60%;
+  }
+  50% {
+    border-radius: 50% 60% 30% 70% / 60% 30% 50% 40%;
+  }
+  75% {
+    border-radius: 30% 50% 60% 40% / 50% 70% 30% 60%;
+  }
+}
+
+/* 7. Animated Gradient Mesh Background */
+@keyframes gradient-mesh-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 100% 25%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  75% {
+    background-position: 25% 0%;
+  }
+}
+
+.gradient-mesh {
+  background: 
+    radial-gradient(at 20% 30%, rgba(217, 119, 6, 0.08) 0%, transparent 50%),
+    radial-gradient(at 80% 20%, rgba(59, 130, 246, 0.06) 0%, transparent 50%),
+    radial-gradient(at 50% 80%, rgba(245, 158, 11, 0.07) 0%, transparent 50%),
+    radial-gradient(at 90% 70%, rgba(147, 51, 234, 0.04) 0%, transparent 50%);
+  background-size: 200% 200%;
+  animation: gradient-mesh-shift 20s ease-in-out infinite;
+}
+
+/* 8. Material Ripple Click Effect */
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(217, 119, 6, 0.3) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ripple-effect:active::before {
+  width: 300px;
+  height: 300px;
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+/* 9. Aurora Borealis Border Effect */
+@keyframes aurora-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.aurora-border {
+  position: relative;
+}
+
+.aurora-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #3b82f6 15%,
+    #8b5cf6 30%,
+    #f59e0b 50%,
+    #ec4899 70%,
+    #3b82f6 85%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: aurora-shift 6s ease-in-out infinite;
+  filter: blur(1px);
+  opacity: 0.8;
+}
+
+/* 10. Draw-Line Animation (Section connectors) */
+@keyframes draw-line-vertical {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes draw-line-horizontal {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.draw-line-v {
+  transform-origin: top;
+  animation: draw-line-vertical 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.draw-line-h {
+  transform-origin: left;
+  animation: draw-line-horizontal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 11. Pulse Glow (for BackToTop button) */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.15);
+  }
+}
+
+/* 12. Rainbow Shimmer Border (for Navbar) */
+@keyframes rainbow-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.rainbow-border-bottom {
+  position: relative;
+}
+
+.rainbow-border-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--accent-primary),
+    #3b82f6,
+    #8b5cf6,
+    var(--accent-secondary),
+    var(--accent-primary)
+  );
+  background-size: 200% 100%;
+  animation: rainbow-shimmer 4s linear infinite;
+  opacity: 0.6;
+}
+
+/* 13. Animated Nav Active Underline */
+.nav-active-line {
+  position: relative;
+}
+
+.nav-active-line::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-active-line.active::after,
+.nav-active-line:hover::after {
+  transform: scaleX(1);
+}
+
+/* 14. Glass Depth Card (deeper glassmorphism) */
+.glass-depth {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+/* 15. Tilt on Scroll (for ScrollReveal enhancement) */
+@keyframes tilt-enter {
+  from {
+    opacity: 0;
+    transform: perspective(800px) rotateY(-12deg) rotateX(6deg) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(800px) rotateY(0deg) rotateX(0deg) translateY(0);
+  }
+}
+
+/* 16. Shimmer Loading Placeholder */
+@keyframes shimmer-sweep {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer-load {
+  background: linear-gradient(
+    90deg,
+    var(--bg-alt) 25%,
+    var(--border-subtle) 37%,
+    var(--bg-alt) 63%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-sweep 1.5s ease-in-out infinite;
+}
+
+/* 17. Section Divider with Gradient Fade */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--border-subtle) 15%,
+    var(--accent-primary) 50%,
+    var(--border-subtle) 85%,
+    transparent 100%
+  );
+  opacity: 0.5;
+}
+
+/* 18. Enhanced Premium Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-alt);
+  border-left: 1px solid var(--border-subtle);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent-primary), var(--accent-secondary));
+  border-radius: 8px;
+  border: 2px solid var(--bg-alt);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--accent-secondary), var(--accent-primary));
+  box-shadow: 0 0 8px rgba(217, 119, 6, 0.3);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-primary) var(--bg-alt);
+}
+
+/* 19. Floating Label Animation */
+@keyframes float-subtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float-subtle {
+  animation: float-subtle 3s ease-in-out infinite;
+}
+
+/* 20. Card Hover Lift with Glow */
+.card-hover-glow {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.card-hover-glow:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 20px 40px -12px rgba(0, 0, 0, 0.08),
+    0 0 0 1px var(--accent-primary),
+    0 4px 16px rgba(217, 119, 6, 0.12);
+}
+
+/* 21. Stagger Fade In (for inline use) */
+@keyframes stagger-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 22. Gradient Text Shimmer */
+@keyframes text-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.text-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--text-primary) 0%,
+    var(--accent-primary) 25%,
+    var(--accent-secondary) 50%,
+    var(--accent-primary) 75%,
+    var(--text-primary) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: text-shimmer 4s linear infinite;
+}
+
+/* Reduced motion support for all new animations */
+@media (prefers-reduced-motion: reduce) {
+  .morph-blob,
+  .gradient-mesh,
+  .aurora-border::before,
+  .rainbow-border-bottom::after,
+  .animate-float-subtle,
+  .text-shimmer,
+  .shimmer-load {
+    animation: none !important;
+  }
+  .card-hover-glow:hover {
+    transform: none !important;
+  }
+  .nav-active-line::after {
+    transition: none !important;
+    transform: scaleX(1) !important;
+  }
+}
+

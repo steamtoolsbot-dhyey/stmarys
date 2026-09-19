@@ -27,8 +27,10 @@ export default function ContactFooter({ onNavigate, onOpenInquiry }) {
   ];
 
   return (
-    <footer className="bg-navy-950 text-slate-300 relative pt-16 pb-12 overflow-hidden border-t-4 border-gold-600">
+    <footer className="bg-navy-950 text-slate-300 relative pt-16 pb-12 overflow-hidden aurora-border">
       
+      {/* Aurora glow effect behind the border */}
+      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-blue-500/5 via-purple-500/3 to-transparent pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Contact Info Cards */}

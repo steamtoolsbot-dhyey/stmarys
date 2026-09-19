@@ -72,6 +72,8 @@ export default function ScrollReveal({
         return 'translateX(28px)';
       case 'zoom':
         return 'scale(0.92)';
+      case 'tilt-scroll':
+        return 'perspective(800px) rotateY(-12deg) rotateX(6deg) translateY(20px)';
       case 'fade':
       default:
         return 'none';
@@ -80,6 +82,8 @@ export default function ScrollReveal({
 
   const timingFunction = animation === 'pop' 
     ? 'cubic-bezier(0.175, 0.885, 0.32, 1.25)' // Spring-like pop ease
+    : animation === 'tilt-scroll'
+    ? 'cubic-bezier(0.25, 0.46, 0.45, 0.94)' // Cinematic settle ease
     : 'cubic-bezier(0.16, 1, 0.3, 1)'; // Silky smooth glide ease
 
   const animationStyle = {

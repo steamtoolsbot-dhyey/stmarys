@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import TopBar from './components/TopBar';
 import Navbar from './components/Navbar';
 import ContactFooter from './components/ContactFooter';
@@ -8,6 +8,8 @@ import ThemeSelector from './components/ThemeSelector';
 import ScrollProgress from './components/ScrollProgress';
 import AmbientBackground from './components/AmbientBackground';
 import InstitutionalTicker from './components/InstitutionalTicker';
+import BackToTop from './components/BackToTop';
+import PageTransition from './components/PageTransition';
 
 // Dedicated Pages
 import HomePage from './pages/HomePage';
@@ -27,6 +29,15 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
   const [isInquiryOpen, setIsInquiryOpen] = useState(false);
   const [selectedNews, setSelectedNews] = useState(null);
+  const [isNavigating, setIsNavigating] = useState(false);
+  const [pendingPage, setPendingPage] = useState(null);
+
+  // Clean up any custom cursor artifacts to guarantee normal cursor
+  useEffect(() => {
+    document.body.style.cursor = '';
+    const el = document.getElementById('custom-cursor-hide');
+    if (el) el.remove();
+  }, []);
 
   // Sync with browser URL hash (e.g. #about, #history, #gallery)
   useEffect(() => {
@@ -47,11 +58,21 @@ export default function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
-  const navigateTo = (pageId) => {
-    setCurrentPage(pageId);
-    window.location.hash = pageId;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const navigateTo = useCallback((pageId) => {
+    if (pageId === currentPage) return;
+    setPendingPage(pageId);
+    setIsNavigating(true);
+  }, [currentPage]);
+
+  const handleTransitionComplete = useCallback(() => {
+    if (pendingPage) {
+      setCurrentPage(pendingPage);
+      window.location.hash = pendingPage;
+      window.scrollTo({ top: 0 });
+      setPendingPage(null);
+    }
+    setIsNavigating(false);
+  }, [pendingPage]);
 
   const renderCurrentPage = () => {
     switch (currentPage) {
@@ -91,6 +112,13 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[var(--bg-canvas)] text-[var(--text-primary)] selection:bg-navy-800 selection:text-gold-300 antialiased transition-colors duration-300 relative">
+      {/* Luxury Initial Preloader & Page Navigation Wipe */}
+      <PageTransition 
+        isActive={isNavigating} 
+        onComplete={handleTransitionComplete} 
+        showInitialLoader={true} 
+      />
+
       {/* 0. Glowing Golden Scroll Progress Line */}
       <ScrollProgress />
 
@@ -141,6 +169,9 @@ export default function App() {
 
       {/* 7. Interactive Theme Switcher Previewer */}
       <ThemeSelector />
+
+      {/* 8. Back to Top Floating Button with Progress Ring */}
+      <BackToTop />
     </div>
   );
 }
